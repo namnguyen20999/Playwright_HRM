@@ -1,8 +1,8 @@
-import { defineConfig, devices } from '@playwright/test';
+import {defineConfig, devices} from '@playwright/test';
 import * as dotenv from 'dotenv';
 import * as path from 'path';
 
-dotenv.config({ path: path.resolve(__dirname, '.env.local') });
+dotenv.config({path: path.resolve(__dirname, '.env.local')});
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -14,11 +14,14 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  retries: process.env.CI ? 3 : 3,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['allure-playwright'], // Use Allure as the reporter
+    ['html', { outputFolder: 'html-report' }], // Optional: Keep the HTML report
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -32,27 +35,27 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { browserName: 'chromium', headless: false },
+      use: {browserName: 'chromium', headless: true},
     },
 
     // {
     //   name: 'firefox',
-    //   use: { browserName: 'firefox' },
+    //   use: {browserName: 'firefox'},
     // },
     //
     // {
     //   name: 'webkit',
-    //   use: { browserName: 'webkit' },
+    //   use: {browserName: 'webkit'},
     // },
 
-    /* Test against mobile viewports. */
+    // /* Test against mobile viewports. */
     // {
     //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
+    //   use: {...devices['Pixel 5']},
     // },
     // {
     //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
+    //   use: {...devices['iPhone 12']},
     // },
 
     /* Test against branded browsers. */
