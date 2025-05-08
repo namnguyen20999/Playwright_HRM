@@ -87,7 +87,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install -g gh-pages
-          npx gh-pages -d allure-report -b gh-pages -u "github-actions[bot] <ci@github.com>" -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+          npx gh-pages -d allure-report -b gh-pages \
+            -u "GitHub Action Bot <ci-bot@github.com>" \
+            -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
 
       - name: Echo Allure report URL
         run: |
