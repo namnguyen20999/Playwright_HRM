@@ -19,14 +19,14 @@ jobs:
         run: npx playwright install --with-deps
       - name: Set up environment variables
         run: |
-          echo "BASE_URL=${{ vars.BASE_URL }}" >> $GITHUB_ENV
-          echo "USERNAME=${{ vars.USERNAME }}" >> $GITHUB_ENV
-          echo "PASSWORD=${{ vars.PASSWORD }}" >> $GITHUB_ENV
+          echo "BASE_URL=${{ secrets.BASE_URL }}" >> $GITHUB_ENV
+          echo "USERNAME=${{ secrets.USERNAME }}" >> $GITHUB_ENV
+          echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       - name: Run Playwright tests
         env:
-          BASE_URL: ${{ vars.BASE_URL }}
-          USERNAME: ${{ vars.USERNAME }}
-          PASSWORD: ${{ vars.PASSWORD }}
+          BASE_URL: ${{ secrets.BASE_URL }}
+          USERNAME: ${{ secrets.USERNAME }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: npx playwright test
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
