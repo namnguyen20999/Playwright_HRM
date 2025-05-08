@@ -83,8 +83,13 @@ jobs:
           git config --global user.name "GitHub Action Bot"
 
       - name: Deploy to GitHub Pages
-        run: |
-          npm install -g gh-pages
-          npx gh-pages -d allure-report -u "github-actions-bot <ci@github.com>" -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install -g gh-pages
+          npx gh-pages -d allure-report -b gh-pages -u "github-actions[bot] <ci@github.com>" -r https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+
+      - name: Echo Allure report URL
+        run: |
+          echo "Allure report is available at:"
+          echo "https://namnguyen20999.github.io/Playwright_HRM/"
