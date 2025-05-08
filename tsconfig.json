@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@fixtures/*": ["fixtures/*"],
+      "@data/*": ["data/*"],
+      "@api/*": ["api/*"],
+
+    }
+  }
+}
