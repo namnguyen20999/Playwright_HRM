@@ -115,7 +115,7 @@ TypeScript configuration file controlling compiler options for type-checking and
 ### 3.2 Installation
 1. Clone the repository:
    ```bash
-   git clone [<repository-url>](https://github.com/namnguyen20999/Playwright_HRM.git)
+   git clone https://github.com/namnguyen20999/Playwright_HRM.git
    cd Playwright_HRM
    ```
    
