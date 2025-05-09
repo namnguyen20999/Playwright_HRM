@@ -134,10 +134,10 @@ TypeScript configuration file controlling compiler options for type-checking and
 
 4. Generate Allure reports:
    ```bash
-   npx allure generate allure-results --clean -o allure-report
+   allure generate allure-results --clean -o allure-report
    ```
 
 5. Open Allure report:
    ```bash
-    npx allure open allure-report
+    allure open allure-report
     ```
