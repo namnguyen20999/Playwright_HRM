@@ -1,8 +1,8 @@
 import {Browser, BrowserContext, chromium, firefox, test as base, webkit} from '@playwright/test';
 import {LoginPage} from "../tests/pages/LoginPage";
-import {Dashboard} from "../tests/pages/Dashboard";
+import {DashboardPage} from "../tests/pages/DashboardPage";
 import {SidePanel} from "../tests/base_UI/Components/SidePanel";
-import {validUserCredentials} from "../data/login-credential";
+import {validUserCredentials} from "@data/login-credential";
 import {AdminPage} from "../tests/pages/AdminPage";
 import {RecordTable} from "../tests/base_UI/Components/RecordTable";
 
@@ -10,7 +10,7 @@ type MyFixtures = {
   browser: Browser;
   context: BrowserContext;
   adminPage: AdminPage;
-  dashboardPage: Dashboard;
+  dashboardPage: DashboardPage;
   loginPage: LoginPage;
   recordTable: RecordTable;
   sidePanel: SidePanel;
@@ -39,7 +39,7 @@ export const test = base.extend<MyFixtures>({
   },
 
   dashboardPage: async ({page}, use) => {
-    const dashboardPage = new Dashboard(page);
+    const dashboardPage = new DashboardPage(page);
     await use(dashboardPage);
   },
 

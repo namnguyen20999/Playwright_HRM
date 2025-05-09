@@ -1,7 +1,7 @@
 import {BasePage} from "./BasePage";
 import {Locator, Page} from "@playwright/test";
 
-export class Dashboard extends BasePage {
+export class DashboardPage extends BasePage {
   // Selector for the dashboard header element
   readonly header: Locator
 
