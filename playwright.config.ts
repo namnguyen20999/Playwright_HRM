@@ -38,15 +38,15 @@ export default defineConfig({
       use: {browserName: 'chromium', headless: true},
     },
 
-    // {
-    //   name: 'firefox',
-    //   use: {browserName: 'firefox'},
-    // },
-    //
-    // {
-    //   name: 'webkit',
-    //   use: {browserName: 'webkit'},
-    // },
+    {
+      name: 'firefox',
+      use: {browserName: 'firefox'},
+    },
+
+    {
+      name: 'webkit',
+      use: {browserName: 'webkit'},
+    },
 
     // /* Test against mobile viewports. */
     // {
